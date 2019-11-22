@@ -1,0 +1,35 @@
+{
+  "name": "react-redux-tree-shaking-playground",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "rollup -c && webpack",
+    "test": "npm run build && ./scripts/check_sizes"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Andarist/react-redux-tree-shaking-playground.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Andarist/react-redux-tree-shaking-playground/issues"
+  },
+  "homepage": "https://github.com/Andarist/react-redux-tree-shaking-playground#readme",
+  "dependencies": {
+    "react": "^16.12.0",
+    "react-redux": "github:reduxjs/react-redux#118601605244f3e4a1f5a0b953faa863c8a623f7",
+    "redux": "^4.0.4"
+  },
+  "devDependencies": {
+    "prettier": "^1.19.1",
+    "rollup": "^1.27.4",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-replace": "^2.2.0",
+    "rollup-plugin-terser": "^5.1.2",
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.10"
+  }
+}

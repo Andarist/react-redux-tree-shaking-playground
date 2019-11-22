@@ -1,0 +1,10 @@
+#!/bin/sh
+
+echo '' > sizes
+
+echo 'Rolluped:' >> sizes
+gzip -c dist/rolluped.js | wc -c >> sizes
+echo 'Rolluped & uglified:' >> sizes
+gzip -c dist/rolluped_uglified.js | wc -c >> sizes
+echo 'Webpacked:' >> sizes
+gzip -c dist/webpacked.js | wc -c >> sizes
