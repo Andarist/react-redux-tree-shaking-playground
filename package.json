@@ -19,7 +19,7 @@
   "homepage": "https://github.com/Andarist/react-redux-tree-shaking-playground#readme",
   "dependencies": {
     "react": "^16.12.0",
-    "react-redux": "github:reduxjs/react-redux#9fc599317927b7e0d8fdaf1304b8efb2008c3cf7",
+    "react-redux": "github:reduxjs/react-redux#9ebd1a931b05f05380c44336dd369fc084474edf",
     "redux": "^4.0.4"
   },
   "devDependencies": {
