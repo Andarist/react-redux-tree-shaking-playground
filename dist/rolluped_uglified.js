@@ -1,6 +1,6 @@
-import React, { useMemo, useEffect } from "react";
+import "react";
 
-import { unstable_batchedUpdates } from "react-dom";
+import "react-dom";
 
 function unwrapExports(x) {
     return x && x.__esModule && Object.prototype.hasOwnProperty.call(x, "default") ? x.default : x;
@@ -193,19 +193,13 @@ var propTypes = createCommonjsModule((function(module) {
         };
         return ReactPropTypes.PropTypes = ReactPropTypes, ReactPropTypes;
     }();
-})), ReactReduxContext = (propTypes.array, propTypes.bool, propTypes.func, propTypes.number, 
-propTypes.object, propTypes.string, propTypes.symbol, propTypes.any, propTypes.arrayOf, 
-propTypes.element, propTypes.elementType, propTypes.instanceOf, propTypes.node, 
-propTypes.objectOf, propTypes.oneOf, propTypes.oneOfType, propTypes.shape, propTypes.exact, 
-propTypes.checkPropTypes, propTypes.resetWarningCache, propTypes.PropTypes, React.createContext(null));
+}));
 
-ReactReduxContext.displayName = "ReactRedux";
-
-propTypes.shape({
-    subscribe: propTypes.func.isRequired,
-    dispatch: propTypes.func.isRequired,
-    getState: propTypes.func.isRequired
-}), propTypes.object, propTypes.any;
+propTypes.array, propTypes.bool, propTypes.func, propTypes.number, propTypes.object, 
+propTypes.string, propTypes.symbol, propTypes.any, propTypes.arrayOf, propTypes.element, 
+propTypes.elementType, propTypes.instanceOf, propTypes.node, propTypes.objectOf, 
+propTypes.oneOf, propTypes.oneOfType, propTypes.shape, propTypes.exact, propTypes.checkPropTypes, 
+propTypes.resetWarningCache, propTypes.PropTypes;
 
 ({})[reactIs.ForwardRef] = {
     $$typeof: !0,

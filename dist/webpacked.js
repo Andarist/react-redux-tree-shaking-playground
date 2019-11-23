@@ -59,13 +59,11 @@
         }
     };
 }, function(module, exports, __webpack_require__) {
-    module.exports = __webpack_require__(8)();
-}, function(module, exports, __webpack_require__) {
     "use strict";
     module.exports = __webpack_require__(10);
 }, function(module, exports, __webpack_require__) {
     "use strict";
-    var reactIs = __webpack_require__(3), REACT_STATICS = {
+    var reactIs = __webpack_require__(2), REACT_STATICS = {
         childContextTypes: !0,
         contextType: !0,
         contextTypes: !0,
@@ -127,7 +125,7 @@
 }, function(module, __webpack_exports__, __webpack_require__) {
     "use strict";
     (function(global, module) {
-        var root, _ponyfill_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(7);
+        var root, _ponyfill_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(6);
         root = "undefined" != typeof self ? self : "undefined" != typeof window ? window : void 0 !== global ? global : module;
         var result = Object(_ponyfill_js__WEBPACK_IMPORTED_MODULE_0__.a)(root);
         __webpack_exports__.a = result;
@@ -144,6 +142,8 @@
     __webpack_require__.d(__webpack_exports__, "a", (function() {
         return symbolObservablePonyfill;
     }));
+}, function(module, exports, __webpack_require__) {
+    module.exports = __webpack_require__(8)();
 }, function(module, exports, __webpack_require__) {
     "use strict";
     var ReactPropTypesSecret = __webpack_require__(9);
@@ -293,95 +293,14 @@
 }, function(module, __webpack_exports__, __webpack_require__) {
     "use strict";
     __webpack_require__.r(__webpack_exports__);
-    var external_React_ = __webpack_require__(0), external_React_default = __webpack_require__.n(external_React_), prop_types = __webpack_require__(2), prop_types_default = __webpack_require__.n(prop_types), ReactReduxContext = external_React_default.a.createContext(null);
-    ReactReduxContext.displayName = "ReactRedux";
-    var batch_batch = function(callback) {
-        callback();
-    }, getBatch = function() {
-        return batch_batch;
-    }, CLEARED = null, nullListeners = {
-        notify: function() {}
-    };
-    var Subscription = function() {
-        function Subscription(store, parentSub) {
-            this.store = store, this.parentSub = parentSub, this.unsubscribe = null, this.listeners = nullListeners, 
-            this.handleChangeWrapper = this.handleChangeWrapper.bind(this);
-        }
-        var _proto = Subscription.prototype;
-        return _proto.addNestedSub = function(listener) {
-            return this.trySubscribe(), this.listeners.subscribe(listener);
-        }, _proto.notifyNestedSubs = function() {
-            this.listeners.notify();
-        }, _proto.handleChangeWrapper = function() {
-            this.onStateChange && this.onStateChange();
-        }, _proto.isSubscribed = function() {
-            return Boolean(this.unsubscribe);
-        }, _proto.trySubscribe = function() {
-            var batch, current, next;
-            this.unsubscribe || (this.unsubscribe = this.parentSub ? this.parentSub.addNestedSub(this.handleChangeWrapper) : this.store.subscribe(this.handleChangeWrapper), 
-            this.listeners = (batch = getBatch(), current = [], next = [], {
-                clear: function() {
-                    next = CLEARED, current = CLEARED;
-                },
-                notify: function() {
-                    var listeners = current = next;
-                    batch((function() {
-                        for (var i = 0; i < listeners.length; i++) listeners[i]();
-                    }));
-                },
-                get: function() {
-                    return next;
-                },
-                subscribe: function(listener) {
-                    var isSubscribed = !0;
-                    return next === current && (next = current.slice()), next.push(listener), function() {
-                        isSubscribed && current !== CLEARED && (isSubscribed = !1, next === current && (next = current.slice()), 
-                        next.splice(next.indexOf(listener), 1));
-                    };
-                }
-            }));
-        }, _proto.tryUnsubscribe = function() {
-            this.unsubscribe && (this.unsubscribe(), this.unsubscribe = null, this.listeners.clear(), 
-            this.listeners = nullListeners);
-        }, Subscription;
-    }();
-    function Provider(_ref) {
-        var store = _ref.store, context = _ref.context, children = _ref.children, contextValue = Object(external_React_.useMemo)((function() {
-            var subscription = new Subscription(store);
-            return subscription.onStateChange = subscription.notifyNestedSubs, {
-                store: store,
-                subscription: subscription
-            };
-        }), [ store ]), previousState = Object(external_React_.useMemo)((function() {
-            return store.getState();
-        }), [ store ]);
-        Object(external_React_.useEffect)((function() {
-            var subscription = contextValue.subscription;
-            return subscription.trySubscribe(), previousState !== store.getState() && subscription.notifyNestedSubs(), 
-            function() {
-                subscription.tryUnsubscribe(), subscription.onStateChange = null;
-            };
-        }), [ contextValue, previousState ]);
-        var Context = context || ReactReduxContext;
-        return external_React_default.a.createElement(Context.Provider, {
-            value: contextValue
-        }, children);
-    }
-    Provider.propTypes = {
-        store: prop_types_default.a.shape({
-            subscribe: prop_types_default.a.func.isRequired,
-            dispatch: prop_types_default.a.func.isRequired,
-            getState: prop_types_default.a.func.isRequired
-        }),
-        context: prop_types_default.a.object,
-        children: prop_types_default.a.any
-    };
-    __webpack_require__(4), __webpack_require__(1), __webpack_require__(3), "undefined" != typeof window && void 0 !== window.document && void 0 !== window.document.createElement ? external_React_.useLayoutEffect : external_React_.useEffect;
-    __webpack_require__(5);
+    var external_React_ = __webpack_require__(0);
+    __webpack_require__(7);
+    __webpack_require__(3), __webpack_require__(1), __webpack_require__(2), "undefined" != typeof window && void 0 !== window.document && void 0 !== window.document.createElement ? external_React_.useLayoutEffect : external_React_.useEffect;
+    __webpack_require__(4);
     var randomString = function() {
         return Math.random().toString(36).substring(7).split("").join(".");
     };
     randomString(), randomString();
-    var newBatch, external_ReactDOM_ = __webpack_require__(6);
-    newBatch = external_ReactDOM_.unstable_batchedUpdates, batch_batch = newBatch;
+    var newBatch, external_ReactDOM_ = __webpack_require__(5);
+    newBatch = external_ReactDOM_.unstable_batchedUpdates;
 } ]);
